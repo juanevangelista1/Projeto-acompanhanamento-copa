@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "party-js": "^2.2.0"
+  }
+}
