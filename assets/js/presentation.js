@@ -4,7 +4,7 @@
 
 function playEffect(name) {
   const effect = new Audio(`/assets/audio/${name}.mp3`)
-  effect.playbackRate = 1.0
+  effect.playbackRate = 1.5
   effect.play()
 }
 
@@ -19,7 +19,7 @@ function showEmoji(name) {
 
 export function updateScore(match, br, other) {
   const newScore = `${br} x ${other}`
-  // console.log(`Updating score from ${match} to ${newScore}`)
+  console.log(`Updating score from ${match} to ${newScore}`)
 
   const scoreEl = document.getElementById(match)
   scoreEl.innerText = newScore
@@ -30,5 +30,6 @@ export function updateScore(match, br, other) {
     showEmoji('gol')
   } else if (other > 0) {
     playEffect('vaia')
+    clearInterval(2000)
   }
 }
