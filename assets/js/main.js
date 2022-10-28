@@ -1,10 +1,24 @@
-﻿import { app } from './firebase.js'
+﻿import {
+  getFirestore,
+  doc,
+  onSnapshot
+} from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js'
+import app from './firebase.js'
+import { updateScore } from './presentation.js'
 
-function showConfet(id) {
-  const element = document.getElementById(id)
-  party.confetti(element)
-}
+const db = getFirestore(app)
 
-// setInterval(() => {
-//   showConfet('br-01')
-// }, 2000)
+onSnapshot(doc(db, 'matches', 'br-01'), doc => {
+  const { br, other } = doc.data()
+  updateScore('br-01', br, other)
+})
+
+onSnapshot(doc(db, 'matches', 'br-02'), doc => {
+  const { br, other } = doc.data()
+  updateScore('br-02', br, other)
+})
+
+onSnapshot(doc(db, 'matches', 'br-03'), doc => {
+  const { br, other } = doc.data()
+  updateScore('br-03', br, other)
+})
