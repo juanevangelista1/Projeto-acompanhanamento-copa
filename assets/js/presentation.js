@@ -6,9 +6,6 @@ function playEffect(name) {
   const effect = new Audio(`/assets/audio/${name}.mp3`)
   effect.playbackRate = 1.0
   effect.play()
-  setInterval(() => {
-    vaia.classList.remove('vaia')
-  }, 5000)
 }
 
 function showEmoji(name) {
